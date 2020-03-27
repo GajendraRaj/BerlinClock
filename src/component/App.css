@@ -41,6 +41,14 @@
   border-radius: 100%;
 }
 
+.hours {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 16rem;
+}
+
 .hours-rows {
   height: 4rem;
   border-style: solid;

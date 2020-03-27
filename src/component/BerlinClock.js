@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import berlinFormat from "../lib/clockEngine";
 import Seconds from "./Seconds";
 import Hours from "./Hours";
+import Minutes from "./Minutes";
 
 const BerlinClock = props => {
   const fromLocaleToBerlinFormat = berlinFormat(props.time);
@@ -14,6 +15,12 @@ const BerlinClock = props => {
         hours={[
           fromLocaleToBerlinFormat.secondRow,
           fromLocaleToBerlinFormat.thirdRow
+        ]}
+      />
+      <Minutes
+        minutes={[
+          fromLocaleToBerlinFormat.fourthRow,
+          fromLocaleToBerlinFormat.lastRow
         ]}
       />
     </div>

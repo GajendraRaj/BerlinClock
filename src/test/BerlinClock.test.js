@@ -4,6 +4,7 @@ import BerlinClock from "../component/BerlinClock";
 import checkPropTypes from "check-prop-types";
 import Seconds from "../component/Seconds";
 import Hours from "../component/Hours";
+import Minutes from "../component/Minutes";
 
 describe("BerlinClock component", () => {
   let wrapper;
@@ -26,6 +27,11 @@ describe("BerlinClock component", () => {
   it("Should display hours prop value as ['RRRO', 'OOOO']' in hours component", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours).toEqual(["RRRO", "OOOO"]);
+  });
+
+  it("Should display minutes prop value as ['YYYYYYOOOOO', 'YYYO']' in minutes component", () => {
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes).toEqual(["YYYYYYOOOOO", "YYYO"]);
   });
 
   it("Should throw error message if there is no time prop", () => {
