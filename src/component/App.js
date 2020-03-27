@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import StandradClock from "./StandardClock";
+import startClock from "../lib/startClock";
+import "./App.css";
 
 function App() {
   const [time, setTime] = useState("");
@@ -10,14 +11,6 @@ function App() {
       setTime(startClock(new Date()));
     }, 1000);
   });
-
-  const startClock = date => {
-    const h = date.getHours();
-    const m = date.getMinutes();
-    const s = date.getSeconds();
-    console.log(`${h}:${m}:${s}`);
-    return `${h}:${m}:${s}`;
-  };
 
   return (
     <div className="App">
