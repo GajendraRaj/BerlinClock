@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>The Berlin Clock</h1>
-      <div>
+      <div className="clock">
         <BerlinClock time={time} />
         <StandradClock time={time} />
       </div>

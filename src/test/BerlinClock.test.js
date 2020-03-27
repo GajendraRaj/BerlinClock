@@ -1,17 +1,25 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import BerlinClock from "../component/BerlinClock";
 import checkPropTypes from "check-prop-types";
+import Seconds from "../component/Seconds";
 
 describe("BerlinClock component", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(<BerlinClock time={"15:33:12"} />);
+  });
+
   it("Should display Y in even second value", () => {
-    const wrapper = shallow(<BerlinClock time={"15:33:12"} />);
-    expect(wrapper.find("div").text()).toBe("Y");
+    const secondsWrapper = wrapper.find(Seconds);
+    expect(secondsWrapper.props().seconds).toEqual("Y");
   });
 
   it("Should display O in odd second value", () => {
     const wrapper = shallow(<BerlinClock time={"15:33:13"} />);
-    expect(wrapper.find("div").text()).toBe("O");
+    const secondsWrapper = wrapper.find(Seconds);
+    expect(secondsWrapper.props().seconds).toEqual("O");
   });
 
   it("Should throw error message if there is no time prop", () => {
