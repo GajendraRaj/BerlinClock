@@ -3,6 +3,7 @@ import { shallow, mount } from "enzyme";
 import BerlinClock from "../component/BerlinClock";
 import checkPropTypes from "check-prop-types";
 import Seconds from "../component/Seconds";
+import Hours from "../component/Hours";
 
 describe("BerlinClock component", () => {
   let wrapper;
@@ -20,6 +21,11 @@ describe("BerlinClock component", () => {
     const wrapper = shallow(<BerlinClock time={"15:33:13"} />);
     const secondsWrapper = wrapper.find(Seconds);
     expect(secondsWrapper.props().seconds).toEqual("O");
+  });
+
+  it("Should display hours prop value as ['RRRO', 'OOOO']' in hours component", () => {
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours).toEqual(["RRRO", "OOOO"]);
   });
 
   it("Should throw error message if there is no time prop", () => {
