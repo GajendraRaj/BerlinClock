@@ -1,15 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import berlinFormat from "../lib/clockEngine";
 
 const BerlinClock = props => {
-  const berlinFormat = time => {
-    const [hours, minutes, seconds] = time.split(":").map(d => parseInt(d));
-    const firstRow = seconds % 2 === 0 ? "Y" : "O";
+  const fromLocaleToBerlinFormat = berlinFormat(props.time);
 
-    return firstRow;
-  };
-
-  return <div>{berlinFormat(props.time)}</div>;
+  return <div>{fromLocaleToBerlinFormat.firstRow}</div>;
 };
 
 BerlinClock.propTypes = {
