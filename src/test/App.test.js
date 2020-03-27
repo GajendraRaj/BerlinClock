@@ -1,7 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
 import App from "../component/App";
-import StandardClock from "../component/StandardClock";
 
 describe("App component", () => {
   const wrapper = shallow(<App />);
@@ -12,5 +11,9 @@ describe("App component", () => {
 
   it("Should render the StandardClock component", () => {
     expect(wrapper.find("StandardClock").length).toEqual(1);
+  });
+
+  it("Should render the BerlinClock component", () => {
+    expect(wrapper.find("BerlinClock").length).toEqual(1);
   });
 });
